@@ -1,10 +1,11 @@
 import { useState } from "react";
-import "./App.css";
+
+import Navbar from "./Navbar";
 
 function App() {
   return (
     <>
-      <button className="btn btn-primary w-64 rounded-full ">Button</button>
+      <Navbar />
     </>
   );
 }

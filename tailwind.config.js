@@ -21,5 +21,8 @@ export default {
       base: ["16px", "1.5"],
     },
   },
+  daisyui: {
+    themes: ["light"],
+  },
   plugins: [require("daisyui")],
 };
