@@ -30,7 +30,7 @@ function Product() {
               role="button"
               className={`size-28 rounded-lg ${
                 activeImage === productImage
-                  ? "border-2 border-primary-800 active-thumbnail"
+                  ? "border-2 border-primary-800 contrast-50"
                   : ""
               }`}
               onClick={() => setActiveImage(productImage)}
