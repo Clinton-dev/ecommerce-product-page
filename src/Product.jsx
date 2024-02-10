@@ -16,10 +16,14 @@ function Product() {
   };
 
   return (
-    <div className="flex gap-8">
-      <div className="product--images border flex flex-col gap-8">
+    <div className="flex gap-8 mt-16">
+      <div className="product--images border flex flex-col gap-8 px-14">
         <div className="product-image-main ">
-          <img src={activeImage.mainImage} alt={activeImage.altText} />
+          <img
+            src={activeImage.mainImage}
+            alt={activeImage.altText}
+            className="rounded-lg"
+          />
         </div>
         <div className="product-images-thumbnails flex gap-x-9">
           {productImages.map((productImage, index) => (
