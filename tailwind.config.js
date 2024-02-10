@@ -22,7 +22,16 @@ export default {
     },
   },
   daisyui: {
-    themes: ["light"],
+    themes: [
+      {
+        mytheme: {
+          primary: "hsl(26, 100%, 55%)",
+          secondary: "hsl(25, 100%, 94%)",
+          "base-100": "hsl(0, 0%, 100%)",
+        },
+      },
+      "light",
+    ],
   },
   plugins: [require("daisyui")],
 };

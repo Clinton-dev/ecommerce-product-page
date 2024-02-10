@@ -2,26 +2,41 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="navbar justify-around bg-base-100">
+    <div className="navbar h-28 justify-around bg-base-100 border p-0">
       <div className="flex-none mr-8">
         <a className="btn btn-ghost text-xl">
           <img src="./logo.svg" alt="" />
         </a>
       </div>
-      <div className="flex-auto gap-x-8">
-        <a href="#" className="link">
+      <div className=" flex-auto gap-x-8">
+        <a
+          href="#"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 border"
+        >
           Collections
         </a>
-        <a href="#" className="link">
+        <a
+          href="#"
+          className="link no-underline text-neutral-700 hover:text-neutral-400"
+        >
           Men
         </a>
-        <a href="#" className="link">
+        <a
+          href="#"
+          className="link no-underline text-neutral-700 hover:text-neutral-400"
+        >
           Women
         </a>
-        <a href="#" className="link">
+        <a
+          href="#"
+          className="link no-underline text-neutral-700 hover:text-neutral-400"
+        >
           About
         </a>
-        <a href="#" className="link">
+        <a
+          href="#"
+          className="link no-underline text-neutral-700 hover:text-neutral-400"
+        >
           Contact
         </a>
       </div>
@@ -29,20 +44,7 @@ function Navbar() {
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
+              <img src="./icon-cart.svg" alt="" />
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </div>
@@ -68,7 +70,7 @@ function Navbar() {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src="./image-avatar.png"
               />
             </div>
           </div>
