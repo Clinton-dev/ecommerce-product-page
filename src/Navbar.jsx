@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { CartContext } from "./CartContext";
 
 function Navbar() {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div className="navbar h-28 justify-around bg-base-100 border p-0">
       <div className="flex-none mr-8">
@@ -45,19 +49,36 @@ function Navbar() {
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
               <img src="./icon-cart.svg" alt="" />
-              <span className="badge badge-sm indicator-item">8</span>
+              {cartItems.length > 0 && (
+                <span className="badge badge-sm indicator-item bg-primary-800 text-neutral-100">
+                  {cartItems[0].quantity}
+                </span>
+              )}
             </div>
           </div>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+            className="mt-3 z-[1] card card-compact dropdown-content w-80 bg-base-100 shadow"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
-              <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
-              </div>
+              <h6 className="card-title border-b border-neutral-500 pb-4">
+                Cart
+              </h6>
+
+              {cartItems.length > 0 ? (
+                <>
+                  <span className="text-info">Subtotal: $999</span>
+                  <div className="card-actions">
+                    <button className="btn btn-primary btn-block text-neutral-100">
+                      Checkout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <p className="text-neutral-600 font-bold">
+                  Your cart is empty.
+                </p>
+              )}
             </div>
           </div>
         </div>
