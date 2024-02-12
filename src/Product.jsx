@@ -117,6 +117,9 @@ function Product() {
         slides={productImages.map((productImage) => {
           return { src: productImage.mainImage };
         })}
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Sets 50% opacity with black background
+        }}
       />
     </>
   );
