@@ -21,5 +21,17 @@ export default {
       base: ["16px", "1.5"],
     },
   },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "hsl(26, 100%, 55%)",
+          secondary: "hsl(25, 100%, 94%)",
+          "base-100": "hsl(0, 0%, 100%)",
+        },
+      },
+      "light",
+    ],
+  },
   plugins: [require("daisyui")],
 };

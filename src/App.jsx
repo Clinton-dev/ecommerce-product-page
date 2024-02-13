@@ -1,11 +1,15 @@
 import { useState } from "react";
-import "./App.css";
+
+import Navbar from "./Navbar";
+import Product from "./Product";
+
 
 function App() {
   return (
-    <>
-      <button className="btn btn-primary w-64 rounded-full ">Button</button>
-    </>
+    <div className="container mx-auto">
+      <Navbar />
+      <Product />
+    </div>
   );
 }
 
