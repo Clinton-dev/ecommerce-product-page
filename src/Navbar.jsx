@@ -68,7 +68,11 @@ function Navbar() {
               {cartItems.length > 0 ? (
                 <>
                   <div className="flex gap-4">
-                    <img src={cartItems[0].thumbnail} alt="" className="w-12" />
+                    <img
+                      src={cartItems[0].thumbnail}
+                      alt=""
+                      className="w-12 rounded"
+                    />
                     <div className="text-neutral-600">
                       <p>{cartItems[0].name}</p>
                       <p>
