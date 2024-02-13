@@ -22,10 +22,28 @@ const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
-  const removeFromCart = (itemId) => {
-    const updatedCartItems = cartItems.filter(
-      (cartItem) => itemId !== cartItem.id
+  const removeFromCart = (item) => {
+    // const updatedCartItems = cartItems.filter(
+    //   (cartItem) => itemId !== cartItem.id
+    // );
+    // setCartItems(updatedCartItems);
+
+    const updatedCartItems = [...cartItems];
+    const existingItemIndex = updatedCartItems.findIndex(
+      (cartItem) => cartItem.id === item.id
     );
+
+    if (existingItemIndex !== -1) {
+      if (updatedCartItems[existingItemIndex].quantity > 0) {
+        updatedCartItems[existingItemIndex].quantity--;
+        updatedCartItems[existingItemIndex].total =
+          updatedCartItems[existingItemIndex].amount *
+          updatedCartItems[existingItemIndex].quantity;
+      }
+    } else {
+      clearCart();
+    }
+
     setCartItems(updatedCartItems);
   };
 

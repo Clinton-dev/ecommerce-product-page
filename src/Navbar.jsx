@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import { CartContext } from "./CartContext";
 
 function Navbar() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, removeFromCart } = useContext(CartContext);
 
   return (
-    <div className="navbar h-28 justify-around bg-base-100 border p-0">
+    <div className="navbar h-28 justify-around bg-base-100 border-b p-0">
       <div className="flex-none mr-8">
         <a className="btn btn-ghost text-xl">
           <img src="./logo.svg" alt="" />
@@ -15,31 +15,31 @@ function Navbar() {
       <div className=" flex-auto gap-x-8">
         <a
           href="#"
-          className="link no-underline text-neutral-700 hover:text-neutral-400 border"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 hover:border-b border-primary-800"
         >
           Collections
         </a>
         <a
           href="#"
-          className="link no-underline text-neutral-700 hover:text-neutral-400"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 hover:border-b border-primary-800"
         >
           Men
         </a>
         <a
           href="#"
-          className="link no-underline text-neutral-700 hover:text-neutral-400"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 hover:border-b border-primary-800"
         >
           Women
         </a>
         <a
           href="#"
-          className="link no-underline text-neutral-700 hover:text-neutral-400"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 hover:border-b border-primary-800"
         >
           About
         </a>
         <a
           href="#"
-          className="link no-underline text-neutral-700 hover:text-neutral-400"
+          className="link no-underline text-neutral-700 hover:text-neutral-400 hover:border-b border-primary-800"
         >
           Contact
         </a>
@@ -67,7 +67,26 @@ function Navbar() {
 
               {cartItems.length > 0 ? (
                 <>
-                  <span className="text-info">Subtotal: $999</span>
+                  <div className="flex gap-4">
+                    <img src={cartItems[0].thumbnail} alt="" className="w-12" />
+                    <div className="text-neutral-600">
+                      <p>{cartItems[0].name}</p>
+                      <p>
+                        $ {cartItems[0].amount} x {cartItems[0].quantity}{" "}
+                        <strong className="text-neutral-700">
+                          $ {cartItems[0].total}
+                        </strong>
+                      </p>
+                    </div>
+                    <button
+                      className="btn bg-transparent border-0 hover:bg-transparent"
+                      onClick={() => {
+                        removeFromCart(cartItems[0]);
+                      }}
+                    >
+                      <img src="./icon-delete.svg" alt="" />
+                    </button>
+                  </div>
                   <div className="card-actions">
                     <button className="btn btn-primary btn-block text-neutral-100">
                       Checkout
@@ -75,7 +94,7 @@ function Navbar() {
                   </div>
                 </>
               ) : (
-                <p className="text-neutral-600 font-bold">
+                <p className="text-neutral-600 font-bold text-center my-10">
                   Your cart is empty.
                 </p>
               )}
