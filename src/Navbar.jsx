@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
       {/* desktop nav */}
-      <div className="navbar h-28 justify-around bg-base-100 border-b p-0">
+      <div className="navbar h-28 justify-around bg-base-100 border-b p-0 hidden md:flex">
         <div className="flex-none mr-8">
           <a className="btn btn-ghost text-xl">
             <img src="./logo.svg" alt="" />
@@ -146,7 +146,7 @@ function Navbar() {
       </div>
 
       {/* mobile nav */}
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 md:hidden">
         <div className="flex-none">
           <button className="btn btn-square btn-ghost">
             <svg
