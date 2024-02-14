@@ -187,7 +187,7 @@ function Navbar() {
             </div>
             <div
               tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content w-80 bg-base-100 shadow"
+              className="mt-3 z-[1] card card-compact dropdown-content w-96 md:w-80 bg-base-100 shadow"
             >
               <div className="card-body">
                 <h6 className="card-title border-b border-neutral-500 pb-4">
