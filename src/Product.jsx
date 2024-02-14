@@ -8,6 +8,7 @@ import "yet-another-react-lightbox/styles.css";
 import { productImages } from "./data";
 
 import { CartContext } from "./CartContext";
+import ProductCarousel from "./ProductCarousel";
 
 function Product() {
   const [productQuantity, setProductQuantity] = useState(1);
@@ -29,8 +30,9 @@ function Product() {
 
   return (
     <>
-      <div className="flex gap-14 mt-16 mb-10 px-10">
-        <div className="product--images flex flex-col gap-8 px-14">
+      <div className="flex gap-8 md:gap-14 md:mt-16 mb-10 md:px-10 flex-col md:flex-row">
+        {/* desktop */}
+        <div className="product--images hidden flex-col gap-8 md:flex md:px-14">
           <div className="product-image-main">
             <img
               src={activeImage.mainImage}
@@ -56,7 +58,12 @@ function Product() {
             ))}
           </div>
         </div>
-        <div className="product--description">
+
+        {/* mobile */}
+
+        <ProductCarousel />
+
+        <div className="product--description px-6">
           <h6 className="text-primary-800 uppercase font-bold product--company">
             Sneaker Company
           </h6>
@@ -69,17 +76,19 @@ function Product() {
             Featuring a durable rubber outer sole, they'll withstand everything
             the weather can offer.
           </p>
-          <p className="font-bold text-3xl mt-8 product--price">
-            $ 125.00
-            <span className="ml-4 bg-primary-100 text-primary-800 p-2 rounded product--discount-percentage">
-              50%
-            </span>
-          </p>
-          <p className="line-through mb-8 text-neutral-600 font-bold product--price-original">
-            {" "}
-            $ 250.00
-          </p>
-          <div className="flex gap-5">
+          <div className="flex flex-row my-4 justify-between items-center md:my-8 md:flex-col">
+            <p className="font-bold text-3xl  product--price">
+              $ 125.00
+              <span className="ml-4 bg-primary-100 text-primary-800 p-2 rounded product--discount-percentage">
+                50%
+              </span>
+            </p>
+            <p className="line-through text-neutral-600 font-bold product--price-original">
+              {" "}
+              $ 250.00
+            </p>
+          </div>
+          <div className="flex gap-5 flex-col md:flex-row">
             <div className="join ">
               <button
                 className="btn bg-neutral-500 border-transparent join-item"
@@ -88,7 +97,7 @@ function Product() {
                 <img src="./icon-minus.svg" />
               </button>
               <input
-                className="input font-bold w-16 text-neutral-400 bg-neutral-500 join-item"
+                className="input font-bold w-full md:w-16 text-center md:text-left text-neutral-400 bg-neutral-500 join-item"
                 type="text"
                 placeholder="1"
                 value={productQuantity}
@@ -102,7 +111,7 @@ function Product() {
               </button>
             </div>
             <button
-              className="btn btn-primary btn-wide text-neutral-100"
+              className="btn btn-primary btn-block md:btn-wide  py-4 text-neutral-100"
               onClick={() => {
                 addToCart({
                   id: 1234,
@@ -112,7 +121,6 @@ function Product() {
                   total: 125.0 * productQuantity,
                   thumbnail: "./image-product-1-thumbnail.jpg",
                 });
-                console.log(cartItems);
               }}
             >
               <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
