@@ -254,7 +254,9 @@ function Navbar() {
               <li>
                 <a className="justify-between">
                   Profile
-                  <span className="badge">New</span>
+                  <span className="badge bg-primary-800 text-neutral-100">
+                    New
+                  </span>
                 </a>
               </li>
               <li>
